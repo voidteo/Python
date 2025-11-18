@@ -135,6 +135,6 @@ print(tuple(set(mytup)))
 """ 
 #task 19: Tuple comprehension nega mavjud emasligini tushuntiruvchi misol yoz.
 
-tuple(x**2 for x in range(5)) → tuple comprehension emas, generatorni tuplega aylantirish
+#tuple(x**2 for x in range(5)) → tuple comprehension emas, generatorni tuplega aylantirish
 
 #task 20: Tuple ichida faqat immutable turlar ishlatilishini isbotlovchi misol yoz.

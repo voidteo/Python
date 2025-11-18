@@ -153,3 +153,51 @@ avg = s/2
 print(avg)
 
 """ 
+
+"""
+x = int(input("enter number: "))
+
+if x > 10:
+    print("eshmat")
+else:
+    print("toshmat")
+
+""" 
+
+#task 1: Create three variables of different data types and print their types.
+"""
+i = int(input("entrer number: "))
+while i > 0:
+    print(i)
+    i-=1
+    
+""" 
+"""
+i = int(input("enter i: "))
+j = int(input("enter: j: "))
+jmp = int(input("enter jump: "))
+
+if i < j:
+    print("i cannot be smaller than j")
+    
+while i < j:
+    print(i)
+    i+=jmp
+    
+""" 
+"""
+i = 2
+while i < 20:
+    print(i)
+    i+=2
+    
+""" 
+"""
+i = 1
+
+while i < 20:
+    if i % 2 == 1:
+        i+=1
+        print(i)
+""" 
+
