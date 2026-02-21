@@ -1,0 +1,5 @@
+my  name  is   Suliman
+i  am  at  22
+he  is 22
+python  is python
+java  is  java  fast  or django
