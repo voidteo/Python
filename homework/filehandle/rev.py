@@ -252,4 +252,25 @@ with open("files/myfile.txt", "w") as f:
     f.writelines(unique_line)
 
 """ 
-#task 
+#task 27: Read a file and convert all text to uppercase.
+"""
+with open("files/intro.txt", "r") as f:
+    for line in f:
+        for i in line.split():
+            print(i.upper(), end=" ")
+        print()
+""" 
+#task 28: Convert all text to lowercase and save to another file.
+"""
+with open("files/himfile.txt", "r") as f:
+    content = f.read()
+
+with open("files/coder.txt", "a") as f:
+    print(f.seek(44)) # it won't work because of mode 'a' , no matter what it appends
+    print(f.tell())
+    f.write(content.lower())
+""" 
+print("hello from Path")
+
+#task 29: Find all lines that contain a specific character.
+
