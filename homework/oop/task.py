@@ -512,10 +512,421 @@ print(a.radius)
 
 ''' 
 #task 26: Create Birthday Person Make a class method that creates a Person with age 0 (newborn)
-
+'''
 class Person:
     def __init__(self, name, age):
         self.name = name
         self.age = age
     
-    @
+    
+    @classmethod
+    def newborn(cls, name):
+        return cls(name, 0)
+    
+p = Person("ALi", 29)
+baby = Person.newborn("abi")
+
+print(p.name, p.age)
+print(baby.name, baby.age)
+
+'''
+#task 27: Make Random Color Create a class method that makes a Color with random RGB values
+'''
+import random
+
+class Color:
+    def __init__(self, r, g, b):
+        self.r = r
+        self.g = g
+        self.b = b
+    
+    @classmethod
+    def rando_color(cls):
+        r = random.randint(0, 255)
+        g = random.randint(0, 255)
+        b = random.randint(0, 255)
+        return cls(r, g, b)
+
+    def __str__(self):
+        return f"{self.r} {self.g} {self.b}"
+
+
+a = Color.rando_color()
+print(a)
+
+'''
+#task 28: Create Square from Area Make a class method that creates a Square when you know the area
+'''
+class Square:
+    def __init__(self, side):
+        self.side = side
+        
+    def area(self):
+        return self.side ** 2
+    
+    @classmethod
+    def from_area(cls, area):
+        return cls(area**0.5)
+
+a = Square.from_area(16)
+print(a.side)
+b = Square(4)
+print(b.area())
+
+'''
+#task 29: Default Settings Create a class method that makes GameSettings with easy difficulty
+'''
+class Game:
+    def __init__(self, name, mode):
+        self.name = name
+        self.mode = mode
+    
+    @classmethod
+    def gamesettings(cls, name):
+        return cls(name, "Easy")
+    
+
+gta = Game("vice_city", "hard")
+gta5 = Game.gamesettings("gta6")
+
+print(gta5.name, gta5.mode)
+print(gta.name, gta.mode)
+
+'''
+#task 30: Create from List Make a class method that creates a Fruit from a list like ["apple", "red"]
+'''
+class Fruit:
+    def __init__(self, name, color):
+        self.name = name
+        self.color = color
+        
+    @classmethod
+    def from_list(cls, fruit_list: list):
+        name = fruit_list[0]
+        color = fruit_list[1]
+        
+        return cls(name, color)
+
+    def __str__(self):
+        return f"{self.name}, {self.color}"
+    
+
+a = Fruit("banana", "yellow")
+b = Fruit.from_list(["apple", "red"])
+print(a)
+print(b)
+
+'''
+#task 31: Student from Dictionary Create a class method that makes a Student from {"name": "Tom", "grade": 88}
+'''
+class Student:
+    def __init__(self, name, grade):
+        self.name = name
+        self.grade = grade
+    
+    @classmethod
+    def from_dict(cls, data: dict):
+        name = data.get("name")
+        grade = data.get("grade")
+        return cls(name, grade)
+    
+    def __str__(self):
+        return f"{self.name}, {self.grade}"
+
+p = Student.from_dict({"name": "Ron", "grade": 88})
+print(p)
+
+'''
+#task 32: Check if Number is Even Make a static method that checks if a number is even
+'''
+class Number:
+    
+    @staticmethod
+    def is_even(num: int):
+        return num % 2 == 0
+    
+
+print(Number.is_even(9))
+
+'''
+
+from math import pi
+
+#task 33: Calculate Circle Area Create a static method that calculates area when given radius
+'''
+class Circle:
+    
+    @staticmethod
+    def area(radius):
+        return round(pi * radius**2, 2)
+    
+a = Circle()
+print(a.area(5))
+
+'''
+#task 34: Check Valid Email Make a static method that checks if email has "@" symbol
+'''
+class Email:
+    
+    @staticmethod
+    def checker(email):
+        if "@" in email:
+            return email
+        else:
+            return"Invalid Email!!!"
+
+
+print(Email.checker("user@gmail.com"))
+
+'''
+#task 35: Convert Celsius to Fahrenheit Create a static method for temperature conversion
+'''
+class Temprature:
+    
+    @staticmethod
+    def from_celsius_to_fahrenheit(celsius):
+        res =  (celsius * 9/5) + 32
+        return res
+    
+print(Temprature.from_celsius_to_fahrenheit(36))
+
+'''
+#task 36: Check if Triangle is Valid Make a static method that checks if 3 sides can make a triangle
+'''
+class Triangle:
+    
+    @staticmethod
+    def is_valid(a, b, c):
+        a, b, c = sorted([a, b, c])
+        return a + b > c
+    
+
+print(Triangle.is_valid(3, 4, 5))
+
+'''
+#task 37: Calculate Dog Years Create a static method that converts human years to dog years (×7)
+'''
+class Dog:
+    
+    @staticmethod
+    def from_human_to_dog(num: int):
+        return num * 7
+    
+print(Dog.from_human_to_dog(2))
+
+'''
+#task 38: Check Strong Password Make a static method that checks if password has at least 8 characters
+'''
+class Password:
+    
+    @staticmethod
+    def checker(value):
+        if len(value) > 8:
+            return value
+        return "Your password should have 8 characters!"
+
+print(Password.checker("eshmat123"))
+
+'''
+#task 39: Calculate Pizza Slices Create a static method that calculates slices per person
+'''
+class Pizza:
+    
+    @staticmethod
+    def calculater(pizza, person):
+        res = pizza / person
+        return f"{res} slice for per person"
+
+
+print(Pizza.calculater(12, 3))
+
+'''
+#task 40: Check Palindrome Make a static method that checks if a word reads same forwards and backwards
+'''
+class Palidrome:
+    
+    @staticmethod
+    def checker(value):
+        if value == value[::-1]:
+            return "Palidrome"
+        return "Not Palidrome"
+
+print(Palidrome.checker("wkiyik"))
+
+'''
+#task 41: Calculate Discount Create a static method that calculates final price after discount
+'''
+class Discount:
+    
+    @staticmethod
+    def calculate(price):
+        discount_sum = price * 0.1
+        final_sum = price - discount_sum
+        return final_sum    
+    
+print(Discount.calculate(100))
+
+'''
+#task 42: Create a TempFile class whose __del__ prints “File deleted” when object is garbage collected.
+'''
+class TempFile:
+    def __init__(self, name):
+        self.name = name
+    
+    def __del__(self):
+        print("File deleted succesfully")
+    
+    def __str__(self):
+        return f"TempFile<><{self.name}"
+
+
+data = TempFile("BankLogHistory")
+print(data)
+
+'''
+#task 43: Create an object, delete it with del, and observe the destructor message.
+'''
+class Secret:
+    def __init__(self, name):
+        self.name = name
+    
+    
+    def __del__(self):
+        print("LogDeleted")
+    
+data = Secret("BankLog")
+
+print(data.name)
+del data
+print(data.name)
+
+'''
+#task 44: Add a delete_account() method to BankAccount that deletes the balance attribute using del self.balance.
+'''
+class BankAccount:
+    def __init__(self, user_id, name, balance):
+        self.name = name
+        self.user_id = user_id
+        self.balance = balance
+    
+    def delete_account(self):
+        del self.balance
+    
+    def __str__(self):
+        return f"Account: {self.name}, balance: {self.balance}"
+    
+user = BankAccount("smp250", "tom", 1450)
+
+user.delete_account()
+print(user.balance)
+
+'''
+#task 45: Use vars() to print all attributes of a Car object as a dictionary.
+'''
+class BankAccount:
+    def __init__(self, user_id, name, balance):
+        self.name = name
+        self.user_id = user_id
+        self.balance = balance
+    
+    def delete_account(self):
+        del self.balance
+    
+    def __str__(self):
+        return f"Account: {self.name}, balance: {self.balance}"
+    
+user = BankAccount("smp250", "tom", 1450)
+print(vars(user))
+
+'''
+#task 46: Use hasattr() to check if a Person object has the attribute age.
+'''
+class BankAccount:
+    def __init__(self, user_id, name, balance):
+        self.name = name
+        self.user_id = user_id
+        self.balance = balance
+    
+    def delete_account(self):
+        del self.balance
+    
+    def __str__(self):
+        return f"Account: {self.name}, balance: {self.balance}"
+    
+user = BankAccount("smp250", "tom", 1450)
+print(hasattr(user, "balance"))
+
+'''
+#task 47: Use getattr() to safely retrieve height from a Person object with default "Unknown".
+'''
+class Person:
+    def __init__(self, name):
+        self.name = name
+        
+
+user = Person("tom")
+
+print(getattr(user, "age", "unknown"))
+
+'''
+#task 48: Use setattr() to dynamically add a new attribute nationality = "Uzbek" to a Person instance.
+'''
+class Person:
+    def __init__(self, name):
+        self.name = name
+        
+
+user = Person("tom")
+setattr(user, "natinality", "uzbek")
+
+print(user.natinality)
+print(vars(user))
+
+'''
+#task 49: Use delattr() to remove an attribute from an existing object and verify using hasattr().
+'''
+class Person:
+    def __init__(self, name, age, skill):
+        self.name = name
+        self.age = age
+        self.skill = skill
+    
+
+user = Person("tom", 18, "hacking")
+print(hasattr(user, "age"))
+
+delattr(user, "age")
+print(hasattr(user, "age"))
+
+'''
+#task 50: Combine everything: write a Vehicle class with class variable vehicle_count, instance variables make and year, 
+# a static method is_motorized(), a class method from_string(), and a custom __str__—demonstrate all functionality.
+'''
+class Vehicle:
+    vehicle_count = 0
+    
+    def __init__(self, make, year):
+        self.make = make
+        self.year = year
+        Vehicle.vehicle_count+=1
+    
+    @classmethod
+    def from_string(cls, data):
+        make, year = data.split(",")
+        return cls(make, year)
+    
+    @staticmethod
+    def is_motorized():
+        return True
+    
+    def __str__(self):
+        return f"Vehicle: {self.make}, year: {self.year}"
+    
+v1 = Vehicle("BMW", 2020)
+v2 = Vehicle.from_string("AUDI, 2002")
+
+print("Motorized: ", Vehicle.is_motorized())
+print("Total vehicles: ", Vehicle.vehicle_count)
+print(v1, v2)
+
+'''
