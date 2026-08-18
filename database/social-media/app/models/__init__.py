@@ -8,3 +8,5 @@ from .comment import Comment
 from .like import Like
 from .tag import Tag
 from .post_tag import PostTag
+from .follow import Follow
+

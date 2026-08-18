@@ -19,3 +19,6 @@ class PostTag(Base):
     
     post: Mapped["Post"] = relationship(back_populates="post_tags")
     tag: Mapped["Tag"] = relationship(back_populates="post_tags")
+    
+    
+
