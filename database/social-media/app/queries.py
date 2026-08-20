@@ -136,6 +136,12 @@ def get_comment_by_id(session: Session, comment_id: int):
     return session.get(Comment, comment_id)
 
 
+def get_comments(session: Session):
+    
+    stmt = select(Comment)
+    return list(session.scalars(stmt))
+
+
 def update_comment(session: Session, new_text, comment_id):
     
     comment = session.get(Comment, comment_id)
@@ -263,5 +269,3 @@ def delete_follow(session: Session, follower_id: int, following_id: int):
     session.commit()
     
     return True
-
-
