@@ -27,5 +27,5 @@ class Post(Base, TimestampMixin):
     comments: Mapped[list["Comment"]] = relationship(back_populates="post")
     likes: Mapped[list["Like"]] = relationship(back_populates="post")
     post_tags: Mapped[list["PostTag"]] = relationship(back_populates="post")
-    tag: Mapped[list["Tag"]] = relationship(secondary="post_tags", back_populates="posts")
+    tags: Mapped[list["Tag"]] = relationship(secondary="post_tags", back_populates="posts", overlaps="post_tags")
     

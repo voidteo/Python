@@ -19,5 +19,5 @@ class Tag(Base, TimestampMixin):
 
     post_tags: Mapped[list["PostTag"]] = relationship(back_populates="tag")
     
-    posts: Mapped[list["Tag"]] = relationship(secondary="post_tags", back_populates="tags")
+    posts: Mapped[list["Post"]] = relationship(secondary="post_tags", back_populates="tags", overlaps="post_tags")  
     

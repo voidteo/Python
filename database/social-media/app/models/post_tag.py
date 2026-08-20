@@ -17,8 +17,8 @@ class PostTag(Base):
     post_id: Mapped[int] = mapped_column(ForeignKey("posts.id"), primary_key=True)
     
     
-    post: Mapped["Post"] = relationship(back_populates="post_tags")
-    tag: Mapped["Tag"] = relationship(back_populates="post_tags")
+    post: Mapped["Post"] = relationship(back_populates="post_tags", overlaps="tags")
+    tag: Mapped["Tag"] = relationship(back_populates="post_tags", overlaps="posts")
     
     
 

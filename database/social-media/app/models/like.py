@@ -18,6 +18,6 @@ class Like(Base, TimestampMixin):
     post_id: Mapped[int] = mapped_column(ForeignKey("posts.id"))
     
 
-    user: Mapped["User"] = relationship(back_populates="user")
-    post: Mapped["Post"] = relationship(back_populates="post")
+    user: Mapped["User"] = relationship(back_populates="likes")
+    post: Mapped["Post"] = relationship(back_populates="likes")
     
